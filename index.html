@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <title>Daily Stoic</title>
+
+    <style>
+        :root {
+            --card-width: 400px;
+            --card-height: 250px;
+        }
+
+        body {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+            background-color: #202020;
+            color: azure;
+        }
+
+        header {
+            min-height: 13vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        main {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #202020;
+        }
+
+        img{
+            width: calc(var(--card-width) / 2);
+            height: calc(var(--card-height) / 1.5);
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            text-align: center;
+            background: whitesmoke;
+            width: var(--card-width);
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 800px) {
+            :root {
+                --card-width: 300px;
+                --card-height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Daily Stoic</h1>
+    </header>
+
+    <h1 style="text-align: center;" id="taskNumber"></h1>
+
+    <main>
+
+        <div class="card">
+            <img id="cardImage">
+            <h2 id="cardTask"></h2>
+        </div>
+    </main>
+</body>
+
+</html>
