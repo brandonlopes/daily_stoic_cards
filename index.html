@@ -34,12 +34,23 @@
             color: #202020;
         }
 
-        img{
+        img {
             width: calc(var(--card-width) / 2);
             height: calc(var(--card-height) / 1.5);
         }
 
+        .card-container {
+            border: 5px solid yellow;
+            position: relative;
+            perspective: 40em
+        }
+
+        .card-container:hover {
+            cursor: pointer;
+        }
+
         .card {
+            z-index: 2;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -47,11 +58,32 @@
             text-align: center;
             background: whitesmoke;
             width: var(--card-width);
-            border-radius: 10px;
+            /* border-radius: 10px; */
+
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
         }
 
-        .card:hover {
-            cursor: pointer;
+        .card-flip {
+            transform: rotateY(180deg);
+        }
+
+        .card-back {
+            background: whitesmoke;
+            position: absolute;
+            top: 0;
+            /* visibility: hidden; */
+            width: var(--card-width);
+            height: 100%;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+
+        .card-back-flip {
+            transform: rotateY(360deg);
         }
 
         @media only screen and (max-width: 800px) {
@@ -72,10 +104,16 @@
 
     <main>
 
-        <div class="card">
-            <img id="cardImage">
-            <h2 id="cardTask"></h2>
+        <div class="card-container" id="card-container">
+            <div class="card" id="card">
+                <img id="cardImage">
+                <h2 id="cardTask"></h2>
+            </div>
+            <div class="card-back" id="card-back">
+                <h2>This is the back of the card</h2>
+            </div>
         </div>
+
     </main>
 </body>
 

@@ -117,6 +117,17 @@ function dailyStoic() {
     cardTask.textContent = dailyTask.task;
     cardImage.src = dailyTask.image;
 
+    function cardFlip(){
+        let cardContainer = document.getElementById("card-container");
+        cardContainer.addEventListener("click", function(){
+            console.log("card container has been clicked");
+            document.getElementById("card").classList.toggle("card-flip");
+            document.getElementById("card-back").classList.toggle("card-back-flip");
+        });
+    }
+
+    cardFlip();
+
     // console.log(`Stoic task #${randomTask}`);
     // console.log(taskList[randomTask].task);
     
