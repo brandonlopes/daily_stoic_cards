@@ -113,9 +113,9 @@ function dailyStoic() {
     let randomTask = Math.floor( Math.random() * (taskList.length - 1))
     let dailyTask = taskList[randomTask];
 
-    taskNumber.innerHTML = `Today's task is #${randomTask}` ;
+    taskNumber.innerHTML = `Task #${randomTask}` ;
     cardTask.textContent = dailyTask.task;
-    cardImage.src = dailyTask.image;
+    // cardImage.src = dailyTask.image;
 
     function cardFlip(){
         let cardContainer = document.getElementById("card-container");
