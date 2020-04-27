@@ -6,7 +6,7 @@ function dailyStoic() {
         {
             task: 'Wake up an hour early',
             image: '',
-            description: "Whatever your alarm is normally set to, move it back sixty minutes. You weren't made to live in a comfy bed. You're awakening to the work of a human being! You got shit to do and potential to realize! Also mornings are just nice. Watch the sunrise :)"
+            description: "Whatever your alarm is normally set to, move it back sixty minutes. You weren't made to live in a comfy bed. You're awakening to the work of a human being! You got shit to do and potential to realize! \n\n Also mornings are just nice. Watch the sunrise :)"
         },
         {
             task: 'Go on a 24-hour phone fast',
@@ -108,29 +108,26 @@ function dailyStoic() {
 
     let cardImage = document.getElementById("cardImage");
     let cardTask = document.getElementById("cardTask");
+    let cardDescription = document.getElementById("cardDescription");
     let taskNumber = document.getElementById("taskNumber");
 
-    let randomTask = Math.floor( Math.random() * (taskList.length - 1))
+    let randomTask = Math.floor(Math.random() * (taskList.length - 1))
     let dailyTask = taskList[randomTask];
 
-    taskNumber.innerHTML = `Task #${randomTask}` ;
+    taskNumber.innerText = `Task #${randomTask}`;
     cardTask.textContent = dailyTask.task;
+    cardDescription.innerText = taskList[0].description
     // cardImage.src = dailyTask.image;
-
-    function cardFlip(){
-        let cardContainer = document.getElementById("card-container");
-        cardContainer.addEventListener("click", function(){
-            console.log("card container has been clicked");
-            document.getElementById("card").classList.toggle("card-flip");
-            document.getElementById("card-back").classList.toggle("card-back-flip");
-        });
-    }
-
-    cardFlip();
 
     // console.log(`Stoic task #${randomTask}`);
     // console.log(taskList[randomTask].task);
-    
 }
+
+function cardFlip() {
+    document.getElementById("card").classList.toggle("card-flip");
+    document.getElementById("card-back").classList.toggle("card-back-flip");
+}
+
+document.getElementById("card-container").addEventListener("click", cardFlip);
 
 
