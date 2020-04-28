@@ -192,11 +192,9 @@ function dailyStoic() {
     cardQuote.innerText = `"${dailyTask.quote}" \n\n — ${dailyTask.author}`;
 }
 
+document.getElementById("cardContainer").addEventListener("click", cardFlip);
+
 function cardFlip() {
     document.getElementById("card").classList.toggle("card-flip");
     document.getElementById("cardBack").classList.toggle("card-back-flip");
 }
-
-document.getElementById("cardContainer").addEventListener("click", cardFlip);
-
-
