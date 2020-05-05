@@ -9,6 +9,7 @@
 
     <style>
         :root {
+            --card-color: #394a7c;
             --card-width: 500px;
             --card-height: 300px;
         }
@@ -40,7 +41,7 @@
 
         img {
             width: calc(var(--card-width) / 2);
-            height: calc(var(--card-height) / 1.5);
+            height: calc(var(--card-height) / 2);
         }
 
         .card-container {
@@ -56,12 +57,11 @@
         }
 
         .card,
-        .card-back,
-        .card-quote {
+        .card-back {
             will-change: transform;
             border-radius: 10px;
             box-shadow: 0 4px 8px 0 black;
-            /* z-index: 2; */
+            z-index: 2;
             /* display: flex; */
             /* justify-content: center; */
             /* flex-wrap: wrap; */
@@ -81,9 +81,12 @@
         .card-back {
             display: flex;
             flex-flow: column;
+            align-items: center;
             position: absolute;
             top: 0;
             transform: rotateY(180deg);
+            padding-bottom: 0px;
+            margin-bottom: 0px;
         }
 
         .card-back-flip {
@@ -91,7 +94,7 @@
         }
 
         .card-quote {
-            background-color: darkblue;
+            background-color: var(--card-color);
             border-radius: 0px 0px 10px 10px;
             color: whitesmoke;
             flex-grow: 1;
@@ -100,8 +103,8 @@
 
         @media only screen and (max-width: 800px) {
             :root {
-                --card-width: 300px;
-                --card-height: 200px;
+                --card-width: 350px;
+                --card-height: 300px;
             }
         }
     </style>
@@ -131,5 +134,4 @@
     </main>
 
 </body>
-
 </html>

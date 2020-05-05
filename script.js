@@ -1,7 +1,5 @@
-document.body.onload = dailyStoic();
-
-function dailyStoic() {
-
+document.body.onload = () => {
+    
     let taskList = [
         {
             task: 'Wake up an hour early',
@@ -175,7 +173,16 @@ function dailyStoic() {
             quote: "[A] commitment to justice in your own acts. Which means: thought and action resulting in the common good. What you were born to do.",
             author: "Marcus Aurelius"
         },
-    ]
+    ];
+
+    let cardColors = {
+        green: "#008b8b",
+        blue: "#394a7c",
+        purple: "#800080"
+    };
+
+    let root = document.documentElement;
+    root.style.setProperty("--card-color", cardColors.green);
 
     let cardImage = document.getElementById("cardImage");
     let cardTask = document.getElementById("cardTask");
@@ -184,13 +191,13 @@ function dailyStoic() {
     let taskNumber = document.getElementById("taskNumber");
 
     let randomTask = Math.floor(Math.random() * (taskList.length - 1))
-    let dailyTask = taskList[randomTask];
+    let dailyTask = taskList[11];
 
-    taskNumber.innerText = `Task #${randomTask + 1}`;
+    taskNumber.innerText = `Task #${12}`;
     cardTask.textContent = dailyTask.task;
     cardDescription.innerText = dailyTask.description;
     cardQuote.innerText = `"${dailyTask.quote}" \n\n — ${dailyTask.author}`;
-}
+};
 
 document.getElementById("cardContainer").addEventListener("click", cardFlip);
 
