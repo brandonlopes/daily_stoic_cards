@@ -3,7 +3,7 @@ document.body.onload = () => {
     let taskList = [
         {
             task: 'Wake up an hour early',
-            image: '',
+            image: 'alarm',
             description: "Whatever your alarm is normally set to, move it back sixty minutes. You weren't made to live in a comfy bed. You're awakening to the work of a human being! You got shit to do and potential to realize! \n\n Also mornings are just nice. Watch the sunrise :)",
             quote: "On those mornings you struggle with getting up, keep this thought in mind—I am awakening to the work of a human being.",
             author: "Marcus Aurelius"
@@ -182,7 +182,7 @@ document.body.onload = () => {
     };
 
     let root = document.documentElement;
-    root.style.setProperty("--card-color", cardColors.green);
+    root.style.setProperty("--card-color", cardColors.blue);
 
     let cardImage = document.getElementById("cardImage");
     let cardTask = document.getElementById("cardTask");
@@ -191,12 +191,13 @@ document.body.onload = () => {
     let taskNumber = document.getElementById("taskNumber");
 
     let randomTask = Math.floor(Math.random() * (taskList.length - 1))
-    let dailyTask = taskList[11];
+    let dailyTask = taskList[0];
 
-    taskNumber.innerText = `Task #${12}`;
+    taskNumber.innerText = `Task # 1`;
     cardTask.textContent = dailyTask.task;
     cardDescription.innerText = dailyTask.description;
     cardQuote.innerText = `"${dailyTask.quote}" \n\n — ${dailyTask.author}`;
+    cardImage.innerText = dailyTask.image;
 };
 
 document.getElementById("cardContainer").addEventListener("click", cardFlip);
