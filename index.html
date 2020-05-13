@@ -22,6 +22,7 @@
             background-color: var(--black);
             /* background-color: #eeeeee; */
             color: var(--white);
+            text-align: center;
         }
 
         header {
@@ -50,12 +51,13 @@
             border-radius: 100px;
             background-color: var(--white);
             margin: 0px;
-            font-size: 128px;
+            padding: 8px;
+            font-size: 100px;
             /* height: calc(var(--card-height) / 2); */
-            color: var(--card-color);
+            color: var(--black);
         }
 
-        .card-image-container {
+        .card-icon-container {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,7 +94,8 @@
         }
 
         #cardTask {
-            margin-top: 2em;
+            margin-top: 1em;
+            padding: 1em;
         }
 
         .card-flip {
@@ -136,14 +139,14 @@
         <h1>Daily Stoic</h1>
     </header>
 
-    <h1 style="text-align: center;" id="taskNumber"></h1>
+    <h1 id="taskNumber"></h1>
 
     <main>
 
         <div class="card-container" id="cardContainer">
             <div class="card" id="card">
-                <div class="card-image-container">
-                    <i class="material-icons" id="cardImage"></i>
+                <div class="card-icon-container">
+                    <i class="material-icons" id="cardIcon"></i>
                 </div>
                 <h2 id="cardTask"></h2>
             </div>
