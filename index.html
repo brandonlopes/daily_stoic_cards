@@ -21,7 +21,6 @@
         body {
             font-family: 'Open Sans', Arial, Helvetica, sans-serif;
             background-color: var(--black);
-            /* background-color: #eeeeee; */
             color: var(--white);
             text-align: center;
         }
@@ -47,14 +46,11 @@
 
         img,
         .material-icons {
-            /* width: calc(var(--card-width) / 3); */
             border-radius: 100px;
             background-color: var(--white);
-            margin: 0px;
-            padding: 9px;
             font-size: 100px;
-            /* height: calc(var(--card-height) / 2); */
             color: var(--icon-color);
+            padding: 0.1em;
         }
 
         .card-icon-container {
@@ -65,7 +61,9 @@
             border-radius: 10px 10px 0px 0px;
 
             background-color: var(--card-color);
-            height: calc(var(--card-height) / 1.9);
+            /* height: calc(var(--card-height) / 1.9); */
+            height: 100%;
+            margin: 0px;
         }
 
         .card-container {
@@ -81,6 +79,9 @@
 
         .card,
         .card-back {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
             will-change: transform;
             border-radius: 15px;
             box-shadow: 0 4px 8px 0 black;
@@ -91,10 +92,6 @@
             transition: transform 1s;
             transform-style: preserve-3d;
             backface-visibility: hidden;
-        }
-
-        #cardTask {
-            padding: 0.9em;
         }
 
         .card-flip {
@@ -125,6 +122,11 @@
         }
 
         .card-description{
+            height: 50%;
+            padding: 1em;
+        }
+
+        #cardTask{
             padding: 1em;
         }
 
