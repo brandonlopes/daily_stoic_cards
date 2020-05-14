@@ -11,6 +11,7 @@
     <style>
         :root {
             --card-color: #394a7c;
+            --icon-color: #008b8b;
             --white: #eeeeee;
             --black: #202020;
             --card-width: 500px;
@@ -47,14 +48,13 @@
         img,
         .material-icons {
             /* width: calc(var(--card-width) / 3); */
-            border: 1px solid var(--white);
             border-radius: 100px;
             background-color: var(--white);
             margin: 0px;
-            padding: 8px;
+            padding: 9px;
             font-size: 100px;
             /* height: calc(var(--card-height) / 2); */
-            color: var(--black);
+            color: var(--icon-color);
         }
 
         .card-icon-container {
@@ -94,8 +94,7 @@
         }
 
         #cardTask {
-            margin-top: 1em;
-            padding: 1em;
+            padding: 0.9em;
         }
 
         .card-flip {
@@ -109,8 +108,6 @@
             position: absolute;
             top: 0;
             transform: rotateY(180deg);
-            padding-bottom: 0px;
-            margin-bottom: 0px;
         }
 
         .card-back-flip {
@@ -119,10 +116,16 @@
 
         .card-quote {
             background-color: var(--card-color);
-            border-radius: 0px 0px 10px 10px;
+            border-radius: 0px 0px 15px 15px;
+            box-shadow: 0 4px 8px 0 black;
             color: var(--white);
             flex-grow: 1;
-            height: 100%;
+            max-height: 100%;
+            padding: 1em;
+        }
+
+        .card-description{
+            padding: 1em;
         }
 
         @media only screen and (max-width: 800px) {
@@ -152,7 +155,7 @@
             </div>
 
             <div class="card-back" id="cardBack">
-                <p id="cardDescription"></p>
+                <p class="card-description" id="cardDescription"></p>
                 <div class="card-quote">
                     <p id="cardQuote"></p>
                 </div>

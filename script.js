@@ -183,6 +183,7 @@ document.body.onload = () => {
 
     let root = document.documentElement;
     root.style.setProperty("--card-color", cardColors.blue);
+    root.style.setProperty("--icon-color", cardColors.blue);
 
     let cardIcon = document.getElementById("cardIcon");
     let cardTask = document.getElementById("cardTask");
