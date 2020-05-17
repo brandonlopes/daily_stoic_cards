@@ -185,20 +185,10 @@ document.body.onload = () => {
     root.style.setProperty("--card-color", cardColors.blue);
     root.style.setProperty("--icon-color", cardColors.blue);
 
-    let cardIcon = document.getElementById("cardIcon");
-    let cardTask = document.getElementById("cardTask");
-    let cardDescription = document.getElementById("cardDescription");
-    let cardQuote = document.getElementById("cardQuote");
-    let taskNumber = document.getElementById("taskNumber");
-
     let randomNumber = Math.floor(Math.random() * (cardList.length - 1))
     let randomCard = cardList[randomNumber];
 
-    taskNumber.innerText = `Task #${randomNumber + 1}`;
-    cardTask.textContent = randomCard.task;
-    cardDescription.innerText = randomCard.description;
-    cardQuote.innerText = `"${randomCard.quote}" \n\n — ${randomCard.author}`;
-    cardIcon.innerText = randomCard.icon;
+    drawCard(randomCard);
 
     for (let i = 0; i < cardList.length; i++) {
         drawCardPreview(cardList[i]);
@@ -214,15 +204,30 @@ function cardFlip() {
 }
 
 function drawCardPreview(card) {
+    let cardPreviewList = document.getElementById("previewList");
     let cardPreview = document.createElement("div");
-    let previewText = document.createElement("p");
     let previewIcon = document.createElement("i");
+    previewIcon.addEventListener("click", () => {
+        drawCard(card);
+    });
 
-    previewText.innerText = card.task;
     previewIcon.innerText = card.icon;
     previewIcon.classList.add("material-icons")
 
     cardPreview.appendChild(previewIcon);
-    cardPreview.appendChild(previewText);
-    document.body.appendChild(cardPreview);
+    cardPreviewList.appendChild(cardPreview);
+}
+
+function drawCard(card){
+    let cardIcon = document.getElementById("cardIcon");
+    let cardTask = document.getElementById("cardTask");
+    let cardDescription = document.getElementById("cardDescription");
+    let cardQuote = document.getElementById("cardQuote");
+    let taskNumber = document.getElementById("taskNumber");
+
+    taskNumber.innerText = `Task #${cardList.lastIndexOf(card) + 1}`;
+    cardTask.textContent = card.task;
+    cardDescription.innerText = card.description;
+    cardQuote.innerText = `"${card.quote}" \n — ${card.author}`;
+    cardIcon.innerText = card.icon;
 }
