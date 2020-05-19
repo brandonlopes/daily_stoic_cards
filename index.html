@@ -11,11 +11,11 @@
     <style>
         :root {
             --card-color: #394a7c;
-            --icon-color: #008b8b;
             --white: #eeeeee;
             --black: #202020;
             --card-width: 500px;
             --card-height: 300px;
+            --preview-width: 50%;
         }
 
         body {
@@ -35,6 +35,7 @@
         main {
             min-height: 30vh;
             display: flex;
+            flex-flow: column;
             align-items: center;
             justify-content: center;
             color: var(--black);
@@ -44,33 +45,15 @@
             font-size: 18px;
         }
 
-        img,
-        .material-icons {
-            border-radius: 100px;
-            background-color: var(--white);
-            font-size: 100px;
-            color: var(--icon-color);
-            padding: 0.1em;
-        }
-
-        .card-icon-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-content: space-between;
-            border-radius: 10px 10px 0px 0px;
-
-            background-color: var(--card-color);
-            /* height: calc(var(--card-height) / 1.9); */
-            height: 100%;
-            margin: 0px;
-        }
-
         .card-container {
             position: relative;
             perspective: 40em;
             height: var(--card-height);
             text-align: center;
+            margin-bottom: 1em;
+            transition: opacity 0.5s, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(1);
+            z-index: 1;
         }
 
         .card-container:hover {
@@ -89,7 +72,7 @@
             background: var(--white);
             width: var(--card-width);
             height: 100%;
-            transition: transform 1s;
+            transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             transform-style: preserve-3d;
             backface-visibility: hidden;
         }
@@ -111,6 +94,19 @@
             transform: rotateY(360deg);
         }
 
+        .card-icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: space-between;
+            border-radius: 10px 10px 0px 0px;
+
+            background-color: var(--card-color);
+            /* height: calc(var(--card-height) / 1.9); */
+            height: 100%;
+            margin: 0px;
+        }
+
         .card-quote {
             background-color: var(--card-color);
             border-radius: 0px 0px 15px 15px;
@@ -126,24 +122,49 @@
             padding: 1em;
         }
 
+        .material-icons {
+            border-radius: 100px;
+            background-color: var(--white);
+            font-size: 100px;
+            color: var(--card-color);
+            padding: 0.1em;
+        }
+
+        .hidden{
+            visibility: hidden;
+            transition: opacity 0.1s, transform 0.1s ease-in, visibility 0.1s; 
+            transform: scale(0.0);
+            opacity: 0;
+        }
+
         #cardTask {
             padding: 1em;
         }
 
         #previewList{
             display: flex;
+            width: var(--preview-width);
+            height: 60vh;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: space-between;
+            align-content: space-between;
+            z-index: 0;
+        }
+
+        #previewList i{
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         #previewList i:hover{
             cursor: pointer;
+            transform: scale(1.1);
         }
 
         @media only screen and (max-width: 800px) {
             :root {
                 --card-width: 350px;
                 --card-height: 300px;
+                --preview-width: 80%;
             }
         }
     </style>
@@ -154,11 +175,11 @@
         <h1>Daily Stoic</h1>
     </header>
 
-    <h1 id="taskNumber"></h1>
+    <h1>Select a card from the list below</h1>
 
     <main>
 
-        <div class="card-container" id="cardContainer">
+        <div class="card-container hidden" id="cardContainer">
             <div class="card-front" id="cardFront">
                 <div class="card-icon-container">
                     <i class="material-icons" id="cardIcon"></i>
@@ -174,12 +195,8 @@
             </div>
         </div>
 
-        
+        <div id="previewList"></div>
     </main>
-
-    <div id="previewList">
-
-    </div>
 
 </body>
 
