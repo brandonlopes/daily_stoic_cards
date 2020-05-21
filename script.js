@@ -209,6 +209,19 @@ const cardColors = {
 
 let root = document.documentElement;
 
+let cardContainer = document.getElementById("cardContainer");
+cardContainer.addEventListener("click", function (e) {
+    cardFlip();
+    e.stopPropagation();
+});
+
+let modal = document.getElementById("modal");
+modal.addEventListener("click", closeModal);
+
+document.addEventListener("keyup", function (event) {
+    if (event.which === 27 || event.keyCode === 27) toggleModal();
+})
+
 function getColorCode(color) {
     return cardColors[color];
 }
@@ -220,11 +233,8 @@ function findCardColor(color) {
 }
 
 document.body.onload = () => {
-
-    root.style.setProperty("--card-color", cardColors.blue);
-
-    let randomNumber = Math.floor(Math.random() * (cardList.length - 1))
-    let randomCard = cardList[randomNumber];
+    // let randomNumber = Math.floor(Math.random() * (cardList.length - 1))
+    // let randomCard = cardList[randomNumber];
 
     let blueCards = findCardColor("blue");
     let greenCards = findCardColor("green");
@@ -232,19 +242,19 @@ document.body.onload = () => {
 
     let sortedCardList = blueCards.concat(greenCards).concat(purpleCards);
 
-    // drawCard(randomCard);
-
     for (let i = 0; i < cardList.length; i++) {
         drawCardPreview(sortedCardList[i]);
     }
 };
 
-let cardContainer = document.getElementById("cardContainer");
-cardContainer.addEventListener("click", cardFlip);
-
 function cardFlip() {
     document.getElementById("cardFront").classList.toggle("card-front-flip");
     document.getElementById("cardBack").classList.toggle("card-back-flip");
+}
+
+function resetCard() {
+    document.getElementById("cardFront").classList.remove("card-front-flip");
+    document.getElementById("cardBack").classList.remove("card-back-flip");
 }
 
 function drawCardPreview(card) {
@@ -252,8 +262,10 @@ function drawCardPreview(card) {
     let cardPreview = document.createElement("div");
     let previewIcon = document.createElement("i");
     previewIcon.style.color = getColorCode(card.color);
+
     previewIcon.addEventListener("click", () => {
         drawCard(card);
+        toggleModal();
     });
 
     previewIcon.innerText = card.icon;
@@ -265,15 +277,13 @@ function drawCardPreview(card) {
 
 function drawCard(card) {
     let cardContainer = document.getElementById("cardContainer");
-    animateCard(cardContainer);
+    summonCard(cardContainer);
 
     let cardIcon = document.getElementById("cardIcon");
     let cardTask = document.getElementById("cardTask");
     let cardDescription = document.getElementById("cardDescription");
     let cardQuote = document.getElementById("cardQuote");
-    // let taskNumber = document.getElementById("taskNumber");
 
-    // taskNumber.innerText = `Task #${cardList.lastIndexOf(card) + 1}`;
     setTimeout(function () {
         root.style.setProperty("--card-color", cardColors[card.color]);
         cardTask.textContent = card.task;
@@ -281,11 +291,18 @@ function drawCard(card) {
         cardQuote.innerText = `"${card.quote}" \n — ${card.author}`;
         cardIcon.innerText = card.icon;
     }, 250);
-
 }
 
-function animateCard(cardContainer) {
+function summonCard(cardContainer) {
     cardContainer.classList.add("hidden");
-    // cardContainer.classList.remove("hidden");
-    setTimeout(function () { cardContainer.classList.remove("hidden"); }, 300);
+    setTimeout(function () { cardContainer.classList.remove("hidden"); }, 200);
+}
+
+function toggleModal() {
+    modal.classList.toggle("display");
+}
+
+function closeModal() {
+    modal.classList.remove("display");
+    resetCard();
 }

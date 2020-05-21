@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- TODO -->
+<!--
+    - Add close button to modal
+    - Reset Cards on close
+    - Fix icon container height
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="script.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg">
     <link rel="stylesheet" href="style.css">
     <title>Daily Stoic</title>
 </head>
@@ -15,22 +23,24 @@
         <h1>Daily Stoic</h1>
     </header>
 
-    <h1>Select a card from the list below</h1>
+    <h1>Select a challenge card from the list below</h1>
 
     <main>
 
-        <div class="card-container hidden" id="cardContainer">
-            <div class="card-front" id="cardFront">
-                <div class="card-icon-container">
-                    <i class="material-icons" id="cardIcon"></i>
+        <div class="modal" id="modal">
+            <div class="card-container hidden" id="cardContainer">
+                <div class="card-front" id="cardFront">
+                    <div class="card-icon-container">
+                        <i class="material-icons" id="cardIcon"></i>
+                    </div>
+                    <h2 id="cardTask"></h2>
                 </div>
-                <h2 id="cardTask"></h2>
-            </div>
 
-            <div class="card-back" id="cardBack">
-                <p class="card-description" id="cardDescription"></p>
-                <div class="card-quote">
-                    <p id="cardQuote"></p>
+                <div class="card-back" id="cardBack">
+                    <p class="card-description" id="cardDescription"></p>
+                    <div class="card-quote">
+                        <p id="cardQuote"></p>
+                    </div>
                 </div>
             </div>
         </div>
