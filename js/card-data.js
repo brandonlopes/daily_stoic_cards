@@ -27,7 +27,7 @@ const cardList = [
         task: 'Take a cold shower',
         icon: 'ac_unit',
         description: "Instead of waiting for your shower to warm up exactly right, you're going to turn the knob all the way to cold and step right in. The point of this shower is shock and disquietude--to teach the body and mind an important lesson about what life is like, and who's in charge.",
-        quote: "The body should be treated more rigorusly, that it may not be disobedient to the mind.",
+        quote: "The body should be treated more rigorously, that it may not be disobedient to the mind.",
         author: "Seneca, Moral Letters",
         color: "blue"
     },
@@ -40,9 +40,9 @@ const cardList = [
         color: "blue"
     },
     {
-        task: 'Do pushups to exhaustion, then do it again',
+        task: 'Do push ups to exhaustion, then do it again',
         icon: 'fitness_center',
-        description: "Whether it's push ups, sit ups, or pull ups, do as many as you possible can. Get yourself to the point where you body is shaking and laying on the floor was never so comfortable. Then wait 1 minute, and do it again. As many as you can. While you do it the second time, think back to a minute ago when you believed even 1 more rep was impossible.",
+        description: "Whether it's push ups, sit ups, or pull ups, do as many as you possibly can. Get yourself to the point where your body is shaking and laying on the floor was never so comfortable. Then wait 1 minute, and do it again. As many as you can. While you do it the second time, think back to a minute ago when you believed even 1 more rep was impossible.",
         quote: "If you have nothing to stir you up and rouse you to action, nothing will test your resolution... It is not tranquility, it is merely a flat calm.",
         author: "Seneca",
         color: "blue"
@@ -66,7 +66,7 @@ const cardList = [
     {
         task: 'Delete 10 contacts from your phone',
         icon: 'person_add_disabled',
-        description: "Your challenge today is to do a friend purge. Who you spent time with in the past determined your current path. Who you chose to be with now has the chance to make or break who you will be in the future-- and it always will. We have to make hard decisions on a regular basis about who we say yes to and which relationships we invest in.",
+        description: "Your challenge today is to do a friend purge. Who you spent time with in the past determines your current path. Who you chose to be with now has the chance to make or break who you will be in the future-- and it always will. We have to make hard decisions on a regular basis about who we say yes to and which relationships we invest in.",
         quote: "Above all, keep a close watch on this -- that you are never so tied to your former acquaintances and friends that you are pulled down to their level.",
         author: "Epictetus",
         color: "purple"
@@ -192,7 +192,7 @@ const cardList = [
         color: "green"
     },
     {
-        task: 'Fill a trashbag with clutter from your home',
+        task: 'Fill a trash bag with clutter from your home',
         icon: 'weekend',
         description: "Find a place that needs to be cleaned up and get to it. Fill a garbage bag, a shopping bag, whatever you have time for. The more the better. Trash assaults all of our sense and impacts our ability to experience the world with those very senses. But we can fix all that, for ourselves and for each other.",
         quote: "[A] commitment to justice in your own acts. Which means: thought and action resulting in the common good. What you were born to do.",
