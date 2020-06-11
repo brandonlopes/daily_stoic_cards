@@ -200,3 +200,9 @@ const cardList = [
         color: "green"
     },
 ];
+
+const cardColors = {
+    green: "#008a63",
+    blue: "#394a7c",
+    purple: "#5a568f"
+};

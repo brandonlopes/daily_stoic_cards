@@ -1,9 +1,3 @@
-const cardColors = {
-    green: "#008a63",
-    blue: "#394a7c",
-    purple: "#5a568f"
-};
-
 let root = document.documentElement;
 
 let cardContainer = document.getElementById("cardContainer");
@@ -14,10 +8,6 @@ cardContainer.addEventListener("click", function (e) {
 
 let modal = document.getElementById("modal");
 modal.addEventListener("click", closeModal);
-
-document.addEventListener("keyup", function (event) {
-    if (event.which === 27 || event.keyCode === 27) toggleModal();
-})
 
 function getColorCode(color) {
     return cardColors[color];
@@ -32,11 +22,6 @@ function findCardColor(color) {
 document.body.onload = () => {
     // let randomNumber = Math.floor(Math.random() * (cardList.length - 1))
     // let randomCard = cardList[randomNumber];
-
-    cardListJSON = JSON.stringify(cardList);
-    console.log(cardListJSON);
-    
-    
 
     let blueCards = findCardColor("blue");
     let greenCards = findCardColor("green");
